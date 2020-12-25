@@ -8,7 +8,10 @@ import java.lang.reflect.Method;
 
 public class MyTest {
 
-    public void start  (Class <? extends TestMajor> testRun) throws IllegalAccessException, InvocationTargetException, InstantiationException, NoSuchMethodException {
+    public void start (Class testRun) throws IllegalAccessException, InvocationTargetException, InstantiationException, NoSuchMethodException {
+         if (!(testRun.getSuperclass().equals(TestMajor.class))){
+             throw new RuntimeException("Неверный параметр!");
+         }
         int kol = 0;
         int kol2 = 0;
 

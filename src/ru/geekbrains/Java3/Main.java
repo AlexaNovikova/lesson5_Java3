@@ -36,9 +36,12 @@ public class Main {
         for (Class aClass : test)
             try {
                 mStart.invoke(myTest1, aClass);
+
             } catch (RuntimeException | IllegalAccessException | InvocationTargetException e) {
                 e.printStackTrace();
             }
+
+
     }
 }
 
