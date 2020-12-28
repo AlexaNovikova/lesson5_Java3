@@ -3,12 +3,12 @@ package ru.geekbrains.Java3;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-
+import java.util.*;
 
 
 public class MyTest {
 
-    public void start (Class testRun) throws IllegalAccessException, InvocationTargetException, InstantiationException, NoSuchMethodException {
+    public static void start (Class testRun) throws IllegalAccessException, InvocationTargetException, InstantiationException, NoSuchMethodException {
          if (!(testRun.getSuperclass().equals(TestMajor.class))){
              throw new RuntimeException("Неверный параметр!");
          }
@@ -40,10 +40,19 @@ public class MyTest {
             if (method.isAnnotationPresent(BeforeSuite.class))
                 method.invoke(object);
         }}
-        for (Method method : methods) {
-            if (method.isAnnotationPresent(Test.class))
-                method.invoke(object);
+
+
+                for (int i = 0; i <=10 ; i++) {
+                    for (Method method : methods) {
+                        if (method.isAnnotationPresent(Test.class))
+                    if (method.getAnnotation(Test.class).priority()==i)
+                    {
+                        method.invoke(object);
+                    }
+                }
         }
+
+
         if (kol2==1) {
             for (Method method : methods) {
                 if (method.isAnnotationPresent(AfterSuite.class))

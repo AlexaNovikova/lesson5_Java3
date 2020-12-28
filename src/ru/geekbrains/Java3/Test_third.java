@@ -7,18 +7,18 @@ public class Test_third extends TestMajor{
         System.out.println("Выполняется только перед тестами один раз в начале.");
     }
 
-    @Test
+    @Test(priority = 10)
     public static void test31 (){
         System.out.println("Выполнен тест 3.1");
     }
 
 
-    @Test
+    @Test(priority = 8)
     public static void test32(){
         System.out.println("Выполнен тест 3.2");
     }
 
-    @Test
+    @Test(priority = 3)
     public static void test33(){
         System.out.println("Выполнен тест 3.3");
     }

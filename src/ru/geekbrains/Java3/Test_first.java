@@ -12,17 +12,17 @@ public class Test_first extends TestMajor {
 //        System.out.println("Выполняется только перед тестами один раз в начале.");
 //    }
 
-    @Test
+    @Test (priority = 3)
     public static void test11 (){
         System.out.println("Выполнен тест 1.1");
     }
 
-    @Test
+    @Test (priority = 2)
     public static void test12(){
         System.out.println("Выполнен тест 1.2");
     }
 
-    @Test
+    @Test(priority = 10)
     public static void test13(){
         System.out.println("Выполнен тест 1.3");
     }
